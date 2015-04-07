@@ -11,7 +11,7 @@ public class Demo : MonoBehaviour
 
 		if (health <= 0) {
 			//health = 0;
-			Destroy (meObject);
+			Destroy (gameObject);
 			Debug.Log ("Player dead! Health: " + health);
 		}
 	}
