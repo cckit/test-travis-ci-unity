@@ -14,7 +14,10 @@ before_install:
  - sudo installer -pkg "Unity.pkg" -target /
 
 before_script:
- - /Applications/Unity/Unity.app/Contents/MacOS/Unity -quit -batchmode -executeMethod BuildScript.DevelopmentBuild -logFile /dev/stdout -serial F3-QMQJ-VYPZ-T25H-Z4QQ-9Z33
+ - /Applications/Unity/Unity.app/Contents/MacOS/Unity -quit -batchmode -executeMethod BuildScript.DevelopmentBuild -logFile /dev/stdout -serial F3-WZGM-TDEN-UXF9-SWGE-V9KU
 
 script:
  - xbuild *-csharp.sln
+
+after_script:
+ - /Applications/Unity/Unity.app/Contents/MacOS/Unity returnlicense
