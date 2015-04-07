@@ -1,0 +1,21 @@
+os: osx
+
+env:
+ global:
+  - EnableNuGetPackageRestore=true
+ matrix:
+  - MONO_VER="2.10.12"
+  - UNITY_PAKCAGE_URL="http://netstorage.unity3d.com/unity/5a2e8fe35a68/MacEditorInstaller/Unity.pkg"
+
+before_install:
+ - wget "http://download.mono-project.com/archive/${MONO_VER}/macos-10-x86/MonoFramework-MDK-${MONO_VER}.macos10.xamarin.x86.dmg"
+ - hdid "MonoFramework-MDK-${MONO_VER}.macos10.xamarin.x86.dmg"
+ - sudo installer -pkg "/Volumes/Mono Framework MDK ${MONO_VER}/MonoFramework-MDK-${MONO_VER}.macos10.xamarin.x86.pkg" -target /
+ - wget "http://netstorage.unity3d.com/unity/5a2e8fe35a68/MacEditorInstaller/Unity.pkg"
+ - sudo installer -pkg "Unity.pkg" -target /
+
+before_script:
+ - /Applications/Unity/Unity.app/Contents/MacOS/Unity -quit -batchmode -executeMethod BuildScript.DevelopmentBuild -logFile /dev/stdout
+
+script:
+ - xbuild *-csharp.sln
