@@ -14,10 +14,13 @@ before_install:
  - sudo installer -pkg "Unity.pkg" -target /
 
 before_script:
- - /Applications/Unity/Unity.app/Contents/MacOS/Unity -quit -batchmode -executeMethod BuildScript.PerformBuild -logFile /dev/stdout -logFile /dev/stdout -serial F3-WZGM-TDEN-UXF9-SWGE-V9KU
+ - /Applications/Unity/Unity.app/Contents/MacOS/Unity -quit -batchmode -executeMethod BuildScript.PerformBuild -logFile /dev/stdout -logFile /dev/stdout -serial F3-W8GH-PE3K-QJMD-NZFC-W3R5
 
 script:
  - xbuild *-csharp.sln
 
-after_script:
+after_success:
+ - /Applications/Unity/Unity.app/Contents/MacOS/Unity -returnlicense -quit -batchmode -logFile /dev/stdout
+
+after_failure:
  - /Applications/Unity/Unity.app/Contents/MacOS/Unity -returnlicense -quit -batchmode -logFile /dev/stdout
