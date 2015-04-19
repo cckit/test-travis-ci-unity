@@ -7,6 +7,6 @@ public class Testing
 	[Test]
 	public void testing ()
 	{
-
+		Assert.Fail ("Testing Fail");
 	}
 }
