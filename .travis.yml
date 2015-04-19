@@ -8,7 +8,7 @@ env:
 
 before_install:
  - wget "http://download.mono-project.com/archive/${MONO_VER}/macos-10-x86/MonoFramework-MDK-${MONO_VER}.macos10.xamarin.x86.pkg"
- - sudo installer -dumplog -pkg "/Volumes/Mono Framework MDK ${MONO_VER}/MonoFramework-MDK-${MONO_VER}.macos10.xamarin.x86.pkg" -target /
+ - sudo installer -dumplog -pkg "MonoFramework-MDK-${MONO_VER}.macos10.xamarin.x86.pkg" -target /
  - wget "http://netstorage.unity3d.com/unity/5a2e8fe35a68/MacEditorInstaller/Unity.pkg"
  - sudo installer -dumplog -verbose -pkg "Unity.pkg" -target /
 
