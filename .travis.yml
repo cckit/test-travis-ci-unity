@@ -19,3 +19,4 @@ script:
 
 after_script:
  - /Applications/Unity/Unity.app/Contents/MacOS/Unity -returnlicense -quit -batchmode -logFile /dev/stdout
+ - cat UnitTestResults.xml
