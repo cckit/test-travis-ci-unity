@@ -13,8 +13,9 @@ before_install:
  - sudo installer -dumplog -verbose -pkg "Unity.pkg" -target /
 
 script:
- - /Applications/Unity/Unity.app/Contents/MacOS/Unity -quit -batchmode -executeMethod BuildScript.PerformBuild -logFile /dev/stdout -logFile /dev/stdout -serial F3-MAT2-K5S2-RU4H-AEBV-XC4C
+ - /Applications/Unity/Unity.app/Contents/MacOS/Unity -quit -batchmode -executeMethod BuildScript.PerformBuild -logFile /dev/stdout -serial F3-MAT2-K5S2-RU4H-AEBV-XC4C
  - xbuild *-csharp.sln
+ - /Applications/Unity/Unity.app/Contents/MacOS/Unity -batchmode -logFile /dev/stdout -executeMethod UnityTest.Batch.RunUnitTests
 
 after_script:
  - /Applications/Unity/Unity.app/Contents/MacOS/Unity -returnlicense -quit -batchmode -logFile /dev/stdout
